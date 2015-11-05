@@ -12,6 +12,7 @@
 		7057B7231BEAEFE8007D60F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7057B7221BEAEFE8007D60F7 /* Assets.xcassets */; };
 		7057B7311BEAEFE9007D60F7 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057B7301BEAEFE9007D60F7 /* ________Tests.m */; };
 		7057B73C1BEAEFE9007D60F7 /* ________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057B73B1BEAEFE9007D60F7 /* ________UITests.m */; };
+		709D2F2B1BEB31EC007F1ABA /* XMGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D2F2A1BEB31EC007F1ABA /* XMGTabBarController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		7057B7371BEAEFE9007D60F7 /* 5期-百思不得姐UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "5期-百思不得姐UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7057B73B1BEAEFE9007D60F7 /* ________UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "________UITests.m"; sourceTree = "<group>"; };
 		7057B73D1BEAEFE9007D60F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		709D2F291BEB31EC007F1ABA /* XMGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTabBarController.h; sourceTree = "<group>"; };
+		709D2F2A1BEB31EC007F1ABA /* XMGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 			children = (
 				7057B7191BEAEFE8007D60F7 /* AppDelegate.h */,
 				7057B71A1BEAEFE8007D60F7 /* AppDelegate.m */,
+				709D2F291BEB31EC007F1ABA /* XMGTabBarController.h */,
+				709D2F2A1BEB31EC007F1ABA /* XMGTabBarController.m */,
 				7057B7171BEAEFE8007D60F7 /* main.m */,
 			);
 			name = Classes;
@@ -269,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				709D2F2B1BEB31EC007F1ABA /* XMGTabBarController.m in Sources */,
 				7057B71B1BEAEFE8007D60F7 /* AppDelegate.m in Sources */,
 				7057B7181BEAEFE8007D60F7 /* main.m in Sources */,
 			);
