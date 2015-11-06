@@ -7,6 +7,7 @@
 //
 
 #import "XMGFollowViewController.h"
+#import "XMGRecommendFollowViewController.h"
 
 @interface XMGFollowViewController ()
 
@@ -22,17 +23,17 @@
     // 标题(不建议使用self.title属性)
     self.navigationItem.title = @"我的关注";
     // 左边
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"friendsRecommentIcon"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(followClick) forControlEvents:UIControlEventTouchUpInside];
-    [button sizeToFit];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(followClick)];
 }
 
 - (void)followClick
 {
     XMGLogFunc
+    
+    XMGRecommendFollowViewController *test = [[XMGRecommendFollowViewController alloc] init];
+    test.view.backgroundColor = XMGRandomColor;
+    test.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:test animated:YES];
 }
 
 @end

@@ -16,6 +16,12 @@
 		7038B51D1BEC5E4F005DBC09 /* XMGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5111BEC5E4F005DBC09 /* XMGTabBar.m */; settings = {ASSET_TAGS = (); }; };
 		7038B51E1BEC5E4F005DBC09 /* XMGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5131BEC5E4F005DBC09 /* XMGTabBarController.m */; settings = {ASSET_TAGS = (); }; };
 		7038B51F1BEC5E4F005DBC09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5141BEC5E4F005DBC09 /* main.m */; settings = {ASSET_TAGS = (); }; };
+		7038B5221BEC8C5B005DBC09 /* XMGItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5211BEC8C5B005DBC09 /* XMGItemManager.m */; settings = {ASSET_TAGS = (); }; };
+		7038B5251BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5241BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m */; settings = {ASSET_TAGS = (); }; };
+		7038B5281BEC95B5005DBC09 /* XMGRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5271BEC95B5005DBC09 /* XMGRecommendFollowViewController.m */; settings = {ASSET_TAGS = (); }; };
+		703C1E381BEC9ACF0043E5A4 /* XMGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C1E371BEC9ACF0043E5A4 /* XMGSettingViewController.m */; settings = {ASSET_TAGS = (); }; };
+		703C1E3B1BEC9B600043E5A4 /* XMGTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C1E3A1BEC9B600043E5A4 /* XMGTestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		703C1E3E1BEC9CD40043E5A4 /* XMGBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C1E3D1BEC9CD40043E5A4 /* XMGBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
 		7057B7231BEAEFE8007D60F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7057B7221BEAEFE8007D60F7 /* Assets.xcassets */; };
 		7057B7311BEAEFE9007D60F7 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057B7301BEAEFE9007D60F7 /* ________Tests.m */; };
 		7057B73C1BEAEFE9007D60F7 /* ________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057B73B1BEAEFE9007D60F7 /* ________UITests.m */; };
@@ -57,6 +63,18 @@
 		7038B5131BEC5E4F005DBC09 /* XMGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTabBarController.m; sourceTree = "<group>"; };
 		7038B5141BEC5E4F005DBC09 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7038B5151BEC5E4F005DBC09 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7038B5201BEC8C5B005DBC09 /* XMGItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGItemManager.h; sourceTree = "<group>"; };
+		7038B5211BEC8C5B005DBC09 /* XMGItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGItemManager.m; sourceTree = "<group>"; };
+		7038B5231BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+XMGExtension.h"; sourceTree = "<group>"; };
+		7038B5241BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+XMGExtension.m"; sourceTree = "<group>"; };
+		7038B5261BEC95B5005DBC09 /* XMGRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecommendFollowViewController.h; sourceTree = "<group>"; };
+		7038B5271BEC95B5005DBC09 /* XMGRecommendFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecommendFollowViewController.m; sourceTree = "<group>"; };
+		703C1E361BEC9ACF0043E5A4 /* XMGSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSettingViewController.h; sourceTree = "<group>"; };
+		703C1E371BEC9ACF0043E5A4 /* XMGSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSettingViewController.m; sourceTree = "<group>"; };
+		703C1E391BEC9B600043E5A4 /* XMGTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTestViewController.h; sourceTree = "<group>"; };
+		703C1E3A1BEC9B600043E5A4 /* XMGTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTestViewController.m; sourceTree = "<group>"; };
+		703C1E3C1BEC9CD40043E5A4 /* XMGBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGBaseViewController.h; sourceTree = "<group>"; };
+		703C1E3D1BEC9CD40043E5A4 /* XMGBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGBaseViewController.m; sourceTree = "<group>"; };
 		7057B7131BEAEFE8007D60F7 /* 5期-百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "5期-百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7057B7221BEAEFE8007D60F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7057B7271BEAEFE8007D60F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,6 +171,8 @@
 			children = (
 				7038B4F91BEC5E4F005DBC09 /* XMGFollowViewController.h */,
 				7038B4FA1BEC5E4F005DBC09 /* XMGFollowViewController.m */,
+				7038B5261BEC95B5005DBC09 /* XMGRecommendFollowViewController.h */,
+				7038B5271BEC95B5005DBC09 /* XMGRecommendFollowViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +206,10 @@
 			children = (
 				7038B4FF1BEC5E4F005DBC09 /* XMGMeViewController.h */,
 				7038B5001BEC5E4F005DBC09 /* XMGMeViewController.m */,
+				703C1E361BEC9ACF0043E5A4 /* XMGSettingViewController.h */,
+				703C1E371BEC9ACF0043E5A4 /* XMGSettingViewController.m */,
+				703C1E391BEC9B600043E5A4 /* XMGTestViewController.h */,
+				703C1E3A1BEC9B600043E5A4 /* XMGTestViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -247,6 +271,8 @@
 				7038B5141BEC5E4F005DBC09 /* main.m */,
 				7038B5151BEC5E4F005DBC09 /* PrefixHeader.pch */,
 				7038B5161BEC5E4F005DBC09 /* View */,
+				7038B5201BEC8C5B005DBC09 /* XMGItemManager.h */,
+				7038B5211BEC8C5B005DBC09 /* XMGItemManager.m */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";
@@ -256,6 +282,8 @@
 			children = (
 				7038B50D1BEC5E4F005DBC09 /* UIView+XMGExtension.h */,
 				7038B50E1BEC5E4F005DBC09 /* UIView+XMGExtension.m */,
+				7038B5231BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.h */,
+				7038B5241BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -312,6 +340,8 @@
 			children = (
 				7057B7221BEAEFE8007D60F7 /* Assets.xcassets */,
 				7057B7271BEAEFE8007D60F7 /* Info.plist */,
+				703C1E3C1BEC9CD40043E5A4 /* XMGBaseViewController.h */,
+				703C1E3D1BEC9CD40043E5A4 /* XMGBaseViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -466,14 +496,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				703C1E381BEC9ACF0043E5A4 /* XMGSettingViewController.m in Sources */,
+				703C1E3B1BEC9B600043E5A4 /* XMGTestViewController.m in Sources */,
 				7038B5191BEC5E4F005DBC09 /* XMGMeViewController.m in Sources */,
+				7038B5281BEC95B5005DBC09 /* XMGRecommendFollowViewController.m in Sources */,
 				7038B51D1BEC5E4F005DBC09 /* XMGTabBar.m in Sources */,
 				7038B51C1BEC5E4F005DBC09 /* UIView+XMGExtension.m in Sources */,
 				7038B5181BEC5E4F005DBC09 /* XMGFollowViewController.m in Sources */,
 				7038B51E1BEC5E4F005DBC09 /* XMGTabBarController.m in Sources */,
+				7038B5221BEC8C5B005DBC09 /* XMGItemManager.m in Sources */,
 				7038B51A1BEC5E4F005DBC09 /* XMGNewViewController.m in Sources */,
 				7038B5171BEC5E4F005DBC09 /* XMGEssenceViewController.m in Sources */,
 				7038B51F1BEC5E4F005DBC09 /* main.m in Sources */,
+				7038B5251BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m in Sources */,
+				703C1E3E1BEC9CD40043E5A4 /* XMGBaseViewController.m in Sources */,
 				7038B51B1BEC5E4F005DBC09 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,7 @@
 #ifdef __OBJC__
 
 #import "UIView+XMGExtension.h"
+#import "UIBarButtonItem+XMGExtension.h"
 
 /*** 日志 ***/
 #ifdef DEBUG
