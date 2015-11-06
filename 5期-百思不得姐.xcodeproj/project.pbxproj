@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7038B4BF1BEC5055005DBC09 /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B4BE1BEC5055005DBC09 /* UIView+XMGExtension.m */; settings = {ASSET_TAGS = (); }; };
 		7057B7181BEAEFE8007D60F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057B7171BEAEFE8007D60F7 /* main.m */; };
 		7057B71B1BEAEFE8007D60F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057B71A1BEAEFE8007D60F7 /* AppDelegate.m */; };
 		7057B7231BEAEFE8007D60F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7057B7221BEAEFE8007D60F7 /* Assets.xcassets */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		7038491A1BEB54400078EFBA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7038B4BD1BEC5055005DBC09 /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
+		7038B4BE1BEC5055005DBC09 /* UIView+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMGExtension.m"; sourceTree = "<group>"; };
 		7057B7131BEAEFE8007D60F7 /* 5期-百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "5期-百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7057B7171BEAEFE8007D60F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7057B7191BEAEFE8007D60F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				7038491A1BEB54400078EFBA /* PrefixHeader.pch */,
 				70C651441BEC45FB001EB1D5 /* XMGTabBar.h */,
 				70C651451BEC45FB001EB1D5 /* XMGTabBar.m */,
+				7038B4BD1BEC5055005DBC09 /* UIView+XMGExtension.h */,
+				7038B4BE1BEC5055005DBC09 /* UIView+XMGExtension.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				709D2F2B1BEB31EC007F1ABA /* XMGTabBarController.m in Sources */,
+				7038B4BF1BEC5055005DBC09 /* UIView+XMGExtension.m in Sources */,
 				7057B71B1BEAEFE8007D60F7 /* AppDelegate.m in Sources */,
 				70C651461BEC45FB001EB1D5 /* XMGTabBar.m in Sources */,
 				7057B7181BEAEFE8007D60F7 /* main.m in Sources */,
