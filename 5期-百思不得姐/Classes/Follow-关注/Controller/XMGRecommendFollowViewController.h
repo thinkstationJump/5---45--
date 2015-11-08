@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XMGBaseViewController.h"
 
-@interface XMGRecommendFollowViewController : XMGBaseViewController
+@interface XMGRecommendFollowViewController : UIViewController
 
 @end

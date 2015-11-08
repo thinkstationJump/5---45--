@@ -30,10 +30,8 @@
 {
     XMGLogFunc
     
-    XMGRecommendFollowViewController *test = [[XMGRecommendFollowViewController alloc] init];
-    test.view.backgroundColor = XMGRandomColor;
-    test.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:test animated:YES];
+    XMGRecommendFollowViewController *follow = [[XMGRecommendFollowViewController alloc] init];
+    [self.navigationController pushViewController:follow animated:YES];
 }
 
 @end

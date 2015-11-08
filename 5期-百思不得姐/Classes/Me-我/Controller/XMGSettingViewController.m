@@ -18,14 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = XMGCommonBgColor;
     self.navigationItem.title = @"设置";
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     XMGTestViewController *test = [[XMGTestViewController alloc] init];
-    test.view.backgroundColor = XMGRandomColor;
-    test.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:test animated:YES];
 }
 

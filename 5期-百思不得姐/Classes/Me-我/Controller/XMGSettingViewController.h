@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XMGBaseViewController.h"
 
-@interface XMGSettingViewController : XMGBaseViewController
+@interface XMGSettingViewController : UIViewController
 
 @end

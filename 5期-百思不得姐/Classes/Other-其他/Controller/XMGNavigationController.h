@@ -1,5 +1,5 @@
 //
-//  XMGBaseViewController.h
+//  XMGNavigationController.h
 //  5期-百思不得姐
 //
 //  Created by xiaomage on 15/11/6.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XMGBaseViewController : UIViewController
+@interface XMGNavigationController : UINavigationController
 
 @end

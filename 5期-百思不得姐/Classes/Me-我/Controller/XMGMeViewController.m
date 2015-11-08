@@ -33,8 +33,6 @@
     XMGLogFunc
     
     XMGSettingViewController *setting = [[XMGSettingViewController alloc] init];
-    setting.view.backgroundColor = XMGRandomColor;
-    setting.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:setting animated:YES];
 }
 

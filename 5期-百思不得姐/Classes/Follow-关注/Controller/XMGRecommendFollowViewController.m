@@ -14,6 +14,7 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = XMGCommonBgColor;
     self.navigationItem.title = @"推荐关注";
 }
 
