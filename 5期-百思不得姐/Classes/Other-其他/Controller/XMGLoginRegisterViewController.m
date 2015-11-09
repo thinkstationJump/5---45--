@@ -9,10 +9,8 @@
 #import "XMGLoginRegisterViewController.h"
 
 @interface XMGLoginRegisterViewController ()
-
-//@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftMargin;
+//@property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @end
 
 @implementation XMGLoginRegisterViewController
@@ -20,11 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.loginButton.layer.cornerRadius = 5;
-//    [self.loginButton setValue:@5 forKeyPath:@"layer.cornerRadius"];
-    
-//    self.loginButton.layer.masksToBounds = YES;
-//    [self.loginButton setValue:@YES forKeyPath:@"layer.masksToBounds"];
+//    self.phoneField.tintColor = [UIColor whiteColor];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -50,11 +44,9 @@
     if (self.leftMargin.constant) { // 目前显示的是注册界面, 点击按钮后要切换为登录界面
         self.leftMargin.constant = 0;
         button.selected = NO;
-//        [button setTitle:@"注册帐号" forState:UIControlStateNormal];
     } else { // 目前显示的是登录界面, 点击按钮后要切换为注册界面
         self.leftMargin.constant = - self.view.xmg_width;
         button.selected = YES;
-//        [button setTitle:@"已有帐号?" forState:UIControlStateNormal];
     }
     
     // 动画
@@ -67,7 +59,6 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    [self dismissViewControllerAnimated:YES completion:nil];
     [self.view endEditing:YES];
 }
 @end
