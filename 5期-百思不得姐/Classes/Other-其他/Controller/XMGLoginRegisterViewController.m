@@ -7,10 +7,10 @@
 //
 
 #import "XMGLoginRegisterViewController.h"
+#import "XMGLoginRegisterTextField.h"
 
 @interface XMGLoginRegisterViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftMargin;
-//@property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @end
 
 @implementation XMGLoginRegisterViewController
@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.phoneField.tintColor = [UIColor whiteColor];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
