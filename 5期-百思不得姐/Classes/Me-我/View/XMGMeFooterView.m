@@ -10,9 +10,22 @@
 #import "XMGMeSquare.h"
 #import <AFNetworking.h>
 #import <MJExtension.h>
-#import <UIButton+WebCache.h>
+#import "XMGMeSquareButton.h"
+
+@interface XMGMeFooterView()
+/** 存放所有模型的字典 */
+//@property (nonatomic, strong) NSMutableDictionary<NSString *, XMGMeSquare *> *allSquares;
+@end
 
 @implementation XMGMeFooterView
+
+//- (NSMutableDictionary<NSString *,XMGMeSquare *> *)allSquares
+//{
+//    if (!_allSquares) {
+//        _allSquares = [NSMutableDictionary dictionary];
+//    }
+//    return _allSquares;
+//}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -54,7 +67,7 @@
         XMGMeSquare *square = squares[i];
         
         // 创建按钮
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        XMGMeSquareButton *button = [XMGMeSquareButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         
@@ -65,22 +78,40 @@
         button.xmg_height = buttonH;
         
         // 设置数据
-//        button.backgroundColor = XMGRandomColor;
-        [button setTitle:square.name forState:UIControlStateNormal];
-        [button sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
+        button.square = square;
         
-//        [button.imageView sd_setImageWithURL:[NSURL URLWithString:square.icon] placeholderImage:[UIImage imageNamed:@"setup-head-default"]];
-        
-//        [button setImage:[UIImage imageNamed:@"setup-head-default"] forState:UIControlStateNormal];
-//        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:square.icon] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-//            [button setImage:image forState:UIControlStateNormal];
-//        }];
+        // 存储模型数据
+//        self.allSquares[button.currentTitle] = square;
     }
+    
+    // 设置footer的高度 == 最后一个按钮的bottom(最大Y值)
+    self.xmg_height = self.subviews.lastObject.xmg_bottom;
+    
+    // 设置tableView的contentSize
+    UITableView *tableView = (UITableView *)self.superview;
+    tableView.tableFooterView = self;
+    [tableView reloadData]; // 重新刷新数据(会重新计算contentSize)
+//    tableView.contentSize = CGSizeMake(0, self.xmg_bottom); // 不靠谱
 }
 
-- (void)buttonClick:(UIButton *)button
+- (void)buttonClick:(XMGMeSquareButton *)button
 {
-    XMGLogFunc
+//    XMGMeSquare *square = self.allSquares[button.currentTitle];
+    XMGMeSquare *square = button.square;
+    
+    if ([square.url hasPrefix:@"http"]) { // 利用webView加载url即可
+        XMGLog(@"利用webView加载url");
+    } else if ([square.url hasPrefix:@"mod"]) { // 另行处理
+        if ([square.url hasSuffix:@"BDJ_To_Check"]) {
+            XMGLog(@"跳转到[审帖]界面");
+        } else if ([square.url hasSuffix:@"BDJ_To_RecentHot"]) {
+            XMGLog(@"跳转到[每日排行]界面");
+        } else {
+            XMGLog(@"跳转到其他界面");
+        }
+    } else {
+        XMGLog(@"不是http或者mod协议的");
+    }
 }
 
 @end
