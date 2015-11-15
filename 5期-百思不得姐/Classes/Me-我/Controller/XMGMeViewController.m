@@ -8,6 +8,8 @@
 
 #import "XMGMeViewController.h"
 #import "XMGSettingViewController.h"
+#import "XMGMeCell.h"
+#import "XMGMeFooterView.h"
 
 @interface XMGMeViewController ()
 
@@ -15,10 +17,32 @@
 
 @implementation XMGMeViewController
 
+- (instancetype)init
+{
+    return [self initWithStyle:UITableViewStyleGrouped];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = XMGCommonBgColor;
+    [self setupTable];
+
+    [self setupNav];
+}
+
+- (void)setupTable
+{
+    self.tableView.backgroundColor = XMGCommonBgColor;
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = XMGMargin;
+    self.tableView.contentInset = UIEdgeInsetsMake(XMGMargin - 35, 0, 0, 0);
+    
+    // 设置footer
+    self.tableView.tableFooterView = [[XMGMeFooterView alloc] init];
+}
+
+- (void)setupNav
+{
     // 标题
     self.navigationItem.title = @"我的";
     // 右边-设置
@@ -41,4 +65,40 @@
     XMGLogFunc
 }
 
+#pragma mark - 数据源方法
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 1.确定重用标示:
+    static NSString *ID = @"me";
+    
+    // 2.从缓存池中取
+    XMGMeCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    // 3.如果空就手动创建
+    if (!cell) {
+        cell = [[XMGMeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    
+    // 4.设置数据
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"登录/注册";
+        cell.imageView.image = [UIImage imageNamed:@"publish-audio"];
+    } else {
+        cell.textLabel.text = @"离线下载";
+        // 只要有其他cell设置过imageView.image, 其他不显示图片的cell都需要设置imageView.image = nil
+        cell.imageView.image = nil;
+    }
+    
+    return cell;
+}
 @end
