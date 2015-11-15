@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		702896211BF09D3200C425C9 /* UITextField+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702896201BF09D3200C425C9 /* UITextField+XMGExtension.m */; settings = {ASSET_TAGS = (); }; };
 		7038B5171BEC5E4F005DBC09 /* XMGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B4F41BEC5E4F005DBC09 /* XMGEssenceViewController.m */; settings = {ASSET_TAGS = (); }; };
 		7038B5181BEC5E4F005DBC09 /* XMGFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B4FA1BEC5E4F005DBC09 /* XMGFollowViewController.m */; settings = {ASSET_TAGS = (); }; };
 		7038B5191BEC5E4F005DBC09 /* XMGMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5001BEC5E4F005DBC09 /* XMGMeViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -15,7 +16,6 @@
 		7038B51C1BEC5E4F005DBC09 /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B50E1BEC5E4F005DBC09 /* UIView+XMGExtension.m */; settings = {ASSET_TAGS = (); }; };
 		7038B51E1BEC5E4F005DBC09 /* XMGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5131BEC5E4F005DBC09 /* XMGTabBarController.m */; settings = {ASSET_TAGS = (); }; };
 		7038B51F1BEC5E4F005DBC09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5141BEC5E4F005DBC09 /* main.m */; settings = {ASSET_TAGS = (); }; };
-		7038B5221BEC8C5B005DBC09 /* XMGItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5211BEC8C5B005DBC09 /* XMGItemManager.m */; settings = {ASSET_TAGS = (); }; };
 		7038B5251BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5241BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m */; settings = {ASSET_TAGS = (); }; };
 		7038B5281BEC95B5005DBC09 /* XMGRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B5271BEC95B5005DBC09 /* XMGRecommendFollowViewController.m */; settings = {ASSET_TAGS = (); }; };
 		703C1E381BEC9ACF0043E5A4 /* XMGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C1E371BEC9ACF0043E5A4 /* XMGSettingViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -50,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7028961F1BF09D3200C425C9 /* UITextField+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+XMGExtension.h"; sourceTree = "<group>"; };
+		702896201BF09D3200C425C9 /* UITextField+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+XMGExtension.m"; sourceTree = "<group>"; };
 		7038B4F31BEC5E4F005DBC09 /* XMGEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGEssenceViewController.h; sourceTree = "<group>"; };
 		7038B4F41BEC5E4F005DBC09 /* XMGEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGEssenceViewController.m; sourceTree = "<group>"; };
 		7038B4F91BEC5E4F005DBC09 /* XMGFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGFollowViewController.h; sourceTree = "<group>"; };
@@ -66,8 +68,6 @@
 		7038B5131BEC5E4F005DBC09 /* XMGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTabBarController.m; sourceTree = "<group>"; };
 		7038B5141BEC5E4F005DBC09 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7038B5151BEC5E4F005DBC09 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		7038B5201BEC8C5B005DBC09 /* XMGItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGItemManager.h; sourceTree = "<group>"; };
-		7038B5211BEC8C5B005DBC09 /* XMGItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGItemManager.m; sourceTree = "<group>"; };
 		7038B5231BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+XMGExtension.h"; sourceTree = "<group>"; };
 		7038B5241BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+XMGExtension.m"; sourceTree = "<group>"; };
 		7038B5261BEC95B5005DBC09 /* XMGRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecommendFollowViewController.h; sourceTree = "<group>"; };
@@ -285,8 +285,6 @@
 				7038B50B1BEC5E4F005DBC09 /* AppDelegate.m */,
 				7038B5141BEC5E4F005DBC09 /* main.m */,
 				7038B5151BEC5E4F005DBC09 /* PrefixHeader.pch */,
-				7038B5201BEC8C5B005DBC09 /* XMGItemManager.h */,
-				7038B5211BEC8C5B005DBC09 /* XMGItemManager.m */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";
@@ -298,6 +296,8 @@
 				7038B50E1BEC5E4F005DBC09 /* UIView+XMGExtension.m */,
 				7038B5231BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.h */,
 				7038B5241BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m */,
+				7028961F1BF09D3200C425C9 /* UITextField+XMGExtension.h */,
+				702896201BF09D3200C425C9 /* UITextField+XMGExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -529,7 +529,7 @@
 				705D9F311BEF3B15003A9857 /* XMGTabBar.m in Sources */,
 				705D9F2D1BEF2BBD003A9857 /* XMGLoginRegisterViewController.m in Sources */,
 				7038B51E1BEC5E4F005DBC09 /* XMGTabBarController.m in Sources */,
-				7038B5221BEC8C5B005DBC09 /* XMGItemManager.m in Sources */,
+				702896211BF09D3200C425C9 /* UITextField+XMGExtension.m in Sources */,
 				7038B51A1BEC5E4F005DBC09 /* XMGNewViewController.m in Sources */,
 				7038B5171BEC5E4F005DBC09 /* XMGEssenceViewController.m in Sources */,
 				7038B51F1BEC5E4F005DBC09 /* main.m in Sources */,

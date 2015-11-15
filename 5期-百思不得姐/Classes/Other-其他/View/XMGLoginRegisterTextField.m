@@ -8,8 +8,6 @@
 
 #import "XMGLoginRegisterTextField.h"
 
-static NSString * const XMGPlaceholderColorKey = @"placeholderLabel.textColor";
-
 @interface XMGLoginRegisterTextField()
 
 @end
@@ -21,24 +19,24 @@ static NSString * const XMGPlaceholderColorKey = @"placeholderLabel.textColor";
     // 设置光标颜色
     self.tintColor = [UIColor whiteColor];
     // 设置默认的占位文字颜色
-    [self setValue:[UIColor grayColor] forKeyPath:XMGPlaceholderColorKey];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginEditing) name:UITextFieldTextDidBeginEditingNotification object:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endEditing) name:UITextFieldTextDidEndEditingNotification object:self];
+    self.placeholderColor = [UIColor grayColor];
 }
 
-- (void)dealloc
+/**
+ *  调用时刻 : 成为第一响应者(开始编辑\弹出键盘\获得焦点)
+ */
+- (BOOL)becomeFirstResponder
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.placeholderColor = [UIColor whiteColor];
+    return [super becomeFirstResponder];
 }
 
-- (void)beginEditing
+/**
+ *  调用时刻 : 不做第一响应者(结束编辑\退出键盘\失去焦点)
+ */
+- (BOOL)resignFirstResponder
 {
-    [self setValue:[UIColor whiteColor] forKeyPath:XMGPlaceholderColorKey];
-}
-
-- (void)endEditing
-{
-    [self setValue:[UIColor grayColor] forKeyPath:XMGPlaceholderColorKey];
+    self.placeholderColor = [UIColor grayColor];
+    return [super resignFirstResponder];
 }
 @end
