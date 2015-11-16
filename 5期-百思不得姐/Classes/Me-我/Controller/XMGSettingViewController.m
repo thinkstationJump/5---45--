@@ -10,6 +10,7 @@
 #import "XMGTestViewController.h"
 #import <SDImageCache.h>
 #import "XMGClearCacheCell.h"
+#import "XMGOtherCell.h"
 
 @interface XMGSettingViewController ()
 
@@ -18,6 +19,8 @@
 @implementation XMGSettingViewController
 
 static NSString * const XMGClearCacheCellId = @"XMGClearCacheCell";
+static NSString * const XMGSettingCellId = @"XMGSettingCell";
+static NSString * const XMGOtherCellId = @"XMGOtherCell";
 
 - (instancetype)init
 {
@@ -31,55 +34,8 @@ static NSString * const XMGClearCacheCellId = @"XMGClearCacheCell";
     self.navigationItem.title = @"设置";
     
     [self.tableView registerClass:[XMGClearCacheCell class] forCellReuseIdentifier:XMGClearCacheCellId];
-}
-
-- (void)getCacheSize
-{
-    // 总大小
-    unsigned long long size = 0;
-    
-    // 获得缓存文件夹路径
-    NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *dirpath = [cachesPath stringByAppendingPathComponent:@"default"];
-    
-    // 文件管理者
-    NSFileManager *mgr = [NSFileManager defaultManager];
-    
-    // 获得文件夹的大小  == 获得文件夹中所有文件的总大小
-    // Enumerator : 遍历器\迭代器
-    NSDirectoryEnumerator *enumerator = [mgr enumeratorAtPath:dirpath];
-    for (NSString *subpath in enumerator) {
-        // 全路径
-        NSString *fullSubpath = [dirpath stringByAppendingPathComponent:subpath];
-        // 累加文件大小
-        size += [mgr attributesOfItemAtPath:fullSubpath error:nil].fileSize;
-    }
-    
-    XMGLog(@"%zd", size);
-}
-
-- (void)getCacheSize2
-{
-    // 总大小
-    unsigned long long size = 0;
-    
-    // 获得缓存文件夹路径
-    NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *dirpath = [cachesPath stringByAppendingPathComponent:@"default"];
-    
-    // 文件管理者
-    NSFileManager *mgr = [NSFileManager defaultManager];
-    
-    // 获得文件夹的大小  == 获得文件夹中所有文件的总大小
-    NSArray *subpaths = [mgr subpathsAtPath:dirpath];
-    for (NSString *subpath in subpaths) {
-        // 全路径
-        NSString *fullSubpath = [dirpath stringByAppendingPathComponent:subpath];
-        // 累加文件大小
-        size += [mgr attributesOfItemAtPath:fullSubpath error:nil].fileSize;
-    }
-    
-    XMGLog(@"%zd", size);
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:XMGSettingCellId];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGOtherCell class]) bundle:nil] forCellReuseIdentifier:XMGOtherCellId];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -91,26 +47,49 @@ static NSString * const XMGClearCacheCellId = @"XMGClearCacheCell";
 #pragma mark - 数据源方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if (section == 0) return 10;
+    if (section == 1) return 5;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 取出cell
-    XMGClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGClearCacheCellId];
+    // 清除缓存cell
+    if (indexPath.section == 0 && indexPath.row == 0) {
+//        XMGClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGClearCacheCellId];
+//        
+//        // cell重新显示的时候, 继续转圈圈
+//        UIActivityIndicatorView *loadingView = (UIActivityIndicatorView *)cell.accessoryView;
+//        [loadingView startAnimating];
+//        
+//        return cell;
+        
+        return [tableView dequeueReusableCellWithIdentifier:XMGClearCacheCellId];
+    } else if (indexPath.row == 2) {
+//        XMGOtherCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGOtherCellId];
+//        cell.data = data;
+//        return cell;
+        
+        return [tableView dequeueReusableCellWithIdentifier:XMGOtherCellId];
+    }
     
-    // 返回cell
+    // 其他cell
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGSettingCellId];
+    cell.textLabel.text = [NSString stringWithFormat:@"%zd - %zd", indexPath.section, indexPath.row];
     return cell;
 }
 
 #pragma mark - 代理方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XMGLogFunc
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[XMGOtherCell class]]) {
+        
+    }
 }
 @end
