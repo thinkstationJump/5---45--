@@ -39,16 +39,6 @@
     
     // 设置footer
     self.tableView.tableFooterView = [[XMGMeFooterView alloc] init];
-    
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        UIView *footer = [[UIView alloc] init];
-//        footer.backgroundColor = [UIColor redColor];
-//        footer.xmg_height = 700;
-//        self.tableView.tableFooterView = footer;
-//        [self.tableView reloadData];
-//        XMGLog(@"%@", NSStringFromCGSize(self.tableView.contentSize));
-//    });
 }
 
 - (void)setupNav
