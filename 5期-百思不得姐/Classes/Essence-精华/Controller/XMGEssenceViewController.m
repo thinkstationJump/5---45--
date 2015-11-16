@@ -8,6 +8,11 @@
 
 #import "XMGEssenceViewController.h"
 #import "XMGTitleButton.h"
+#import "XMGAllViewController.h"
+#import "XMGVideoViewController.h"
+#import "XMGVoiceViewController.h"
+#import "XMGPictureViewController.h"
+#import "XMGWordViewController.h"
 
 @interface XMGEssenceViewController ()
 /** 当前选中的标题按钮 */
@@ -23,17 +28,59 @@
     
     [self setupNav];
     
+    [self setupChildViewControllers];
+    
     [self setupScrollView];
     
     [self setupTitlesView];
 }
 
+- (void)setupChildViewControllers
+{
+    XMGAllViewController *all = [[XMGAllViewController alloc] init];
+    [self addChildViewController:all];
+    
+    XMGVideoViewController *video = [[XMGVideoViewController alloc] init];
+    [self addChildViewController:video];
+    
+    XMGVoiceViewController *voice = [[XMGVoiceViewController alloc] init];
+    [self addChildViewController:voice];
+    
+    XMGPictureViewController *picture = [[XMGPictureViewController alloc] init];
+    [self addChildViewController:picture];
+    
+    XMGWordViewController *word = [[XMGWordViewController alloc] init];
+    [self addChildViewController:word];
+}
+
 - (void)setupScrollView
 {
+    // 不允许自动调整scrollView的内边距
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = XMGRandomColor;
     scrollView.frame = self.view.bounds;
+    scrollView.pagingEnabled = YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:scrollView];
+    
+    // 添加所有子控制器的view到scrollView中
+    NSUInteger count = self.childViewControllers.count;
+    for (NSUInteger i = 0; i < count; i++) {
+        UITableView *childVcView = (UITableView *)self.childViewControllers[i].view;
+        childVcView.backgroundColor = XMGRandomColor;
+        childVcView.xmg_x = i * childVcView.xmg_width;
+        childVcView.xmg_y = 0;
+        childVcView.xmg_height = scrollView.xmg_height;
+        [scrollView addSubview:childVcView];
+        
+        // 内边距
+        childVcView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
+        childVcView.scrollIndicatorInsets = childVcView.contentInset;
+    }
+    scrollView.contentSize = CGSizeMake(count * scrollView.xmg_width, 0);
 }
 
 - (void)setupTitlesView
@@ -63,15 +110,24 @@
     }
     
     // 按钮的选中颜色
-    XMGTitleButton *lastTitleButton = titlesView.subviews.lastObject;
+    XMGTitleButton *firstTitleButton = titlesView.subviews.firstObject;
     
     // 底部的指示器
     UIView *indicatorView = [[UIView alloc] init];
-    indicatorView.backgroundColor = [lastTitleButton titleColorForState:UIControlStateSelected];
+    indicatorView.backgroundColor = [firstTitleButton titleColorForState:UIControlStateSelected];
     indicatorView.xmg_height = 1;
     indicatorView.xmg_y = titlesView.xmg_height - indicatorView.xmg_height;
     [titlesView addSubview:indicatorView];
     self.indicatorView = indicatorView;
+    
+    // 立刻根据文字内容计算label的宽度
+    [firstTitleButton.titleLabel sizeToFit];
+    indicatorView.xmg_width = firstTitleButton.titleLabel.xmg_width;
+    indicatorView.xmg_centerX = firstTitleButton.xmg_centerX;
+    
+    // 默认情况 : 选中最前面的标题按钮
+    firstTitleButton.selected = YES;
+    self.selectedTitleButton = firstTitleButton;
 }
 
 - (void)setupNav
