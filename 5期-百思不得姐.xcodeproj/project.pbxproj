@@ -33,6 +33,7 @@
 		70528B8D1BF97265001DCDC3 /* XMGClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70528B8C1BF97265001DCDC3 /* XMGClearCacheCell.m */; settings = {ASSET_TAGS = (); }; };
 		70528B911BF97FD6001DCDC3 /* XMGOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70528B8F1BF97FD6001DCDC3 /* XMGOtherCell.m */; settings = {ASSET_TAGS = (); }; };
 		70528B921BF97FD6001DCDC3 /* XMGOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70528B901BF97FD6001DCDC3 /* XMGOtherCell.xib */; settings = {ASSET_TAGS = (); }; };
+		70528B951BF9B9F2001DCDC3 /* XMGTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 70528B941BF9B9F2001DCDC3 /* XMGTitleButton.m */; settings = {ASSET_TAGS = (); }; };
 		7057B7231BEAEFE8007D60F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7057B7221BEAEFE8007D60F7 /* Assets.xcassets */; };
 		7057B7311BEAEFE9007D60F7 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057B7301BEAEFE9007D60F7 /* ________Tests.m */; };
 		7057B73C1BEAEFE9007D60F7 /* ________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057B73B1BEAEFE9007D60F7 /* ________UITests.m */; };
@@ -110,6 +111,8 @@
 		70528B8E1BF97FD6001DCDC3 /* XMGOtherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGOtherCell.h; sourceTree = "<group>"; };
 		70528B8F1BF97FD6001DCDC3 /* XMGOtherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGOtherCell.m; sourceTree = "<group>"; };
 		70528B901BF97FD6001DCDC3 /* XMGOtherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGOtherCell.xib; sourceTree = "<group>"; };
+		70528B931BF9B9F2001DCDC3 /* XMGTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTitleButton.h; sourceTree = "<group>"; };
+		70528B941BF9B9F2001DCDC3 /* XMGTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTitleButton.m; sourceTree = "<group>"; };
 		7057B7131BEAEFE8007D60F7 /* 5期-百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "5期-百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7057B7221BEAEFE8007D60F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7057B7271BEAEFE8007D60F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 		7038B4F61BEC5E4F005DBC09 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				70528B931BF9B9F2001DCDC3 /* XMGTitleButton.h */,
+				70528B941BF9B9F2001DCDC3 /* XMGTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -656,6 +661,7 @@
 				70528B911BF97FD6001DCDC3 /* XMGOtherCell.m in Sources */,
 				7038B51C1BEC5E4F005DBC09 /* UIView+XMGExtension.m in Sources */,
 				7038B5181BEC5E4F005DBC09 /* XMGFollowViewController.m in Sources */,
+				70528B951BF9B9F2001DCDC3 /* XMGTitleButton.m in Sources */,
 				70528B7C1BF83582001DCDC3 /* XMGMeSquare.m in Sources */,
 				705D9F311BEF3B15003A9857 /* XMGTabBar.m in Sources */,
 				705D9F2D1BEF2BBD003A9857 /* XMGLoginRegisterViewController.m in Sources */,
