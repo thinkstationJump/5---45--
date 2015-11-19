@@ -18,6 +18,9 @@
     [super viewDidLoad];
     
     XMGLogFunc
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
 
 #pragma mark - Table view data source

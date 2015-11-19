@@ -14,11 +14,15 @@
 #import "XMGPictureViewController.h"
 #import "XMGWordViewController.h"
 
-@interface XMGEssenceViewController ()
+@interface XMGEssenceViewController () <UIScrollViewDelegate>
 /** 当前选中的标题按钮 */
 @property (nonatomic, weak) XMGTitleButton *selectedTitleButton;
 /** 标题按钮底部的指示器 */
 @property (nonatomic, weak) UIView *indicatorView;
+/** UIScrollView */
+@property (nonatomic, weak) UIScrollView *scrollView;
+/** 标题栏 */
+@property (nonatomic, weak) UIView *titlesView;
 @end
 
 @implementation XMGEssenceViewController
@@ -33,6 +37,9 @@
     [self setupScrollView];
     
     [self setupTitlesView];
+    
+    // 默认添加子控制器的view
+    [self addChildVcView];
 }
 
 - (void)setupChildViewControllers
@@ -64,32 +71,21 @@
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:scrollView];
-    
+    scrollView.delegate = self;
     // 添加所有子控制器的view到scrollView中
-    NSUInteger count = self.childViewControllers.count;
-    for (NSUInteger i = 0; i < count; i++) {
-        UITableView *childVcView = (UITableView *)self.childViewControllers[i].view;
-        childVcView.backgroundColor = XMGRandomColor;
-        childVcView.xmg_x = i * childVcView.xmg_width;
-        childVcView.xmg_y = 0;
-        childVcView.xmg_height = scrollView.xmg_height;
-        [scrollView addSubview:childVcView];
-        
-        // 内边距
-        childVcView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
-        childVcView.scrollIndicatorInsets = childVcView.contentInset;
-    }
-    scrollView.contentSize = CGSizeMake(count * scrollView.xmg_width, 0);
+    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * scrollView.xmg_width, 0);
+    [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
 }
 
 - (void)setupTitlesView
 {
     // 标题栏
     UIView *titlesView = [[UIView alloc] init];
-    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2];
+    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     titlesView.frame = CGRectMake(0, 64, self.view.xmg_width, 35);
     [self.view addSubview:titlesView];
+    self.titlesView = titlesView;
     
     // 添加标题
     NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
@@ -99,6 +95,7 @@
     for (NSUInteger i = 0; i < count; i++) {
         // 创建
         XMGTitleButton *titleButton = [XMGTitleButton buttonWithType:UIButtonTypeCustom];
+        titleButton.tag = i;
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         [titlesView addSubview:titleButton];
         
@@ -152,6 +149,11 @@
         self.indicatorView.xmg_width = titleButton.titleLabel.xmg_width;
         self.indicatorView.xmg_centerX = titleButton.xmg_centerX;
     }];
+    
+    // 让UIScrollView滚动到对应位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = titleButton.tag * self.scrollView.xmg_width;
+    [self.scrollView setContentOffset:offset animated:YES];
 }
 
 - (void)tagClick
@@ -159,4 +161,45 @@
     XMGLogFunc
 }
 
+#pragma mark - 添加子控制器的view
+- (void)addChildVcView
+{
+    // 子控制器的索引
+    NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.xmg_width;
+    
+    // 取出子控制器
+    UIViewController *childVc = self.childViewControllers[index];
+    if ([childVc isViewLoaded]) return;
+    
+    childVc.view.frame = self.scrollView.bounds;
+    [self.scrollView addSubview:childVc.view];
+}
+
+#pragma mark - <UIScrollViewDelegate>
+/**
+ * 在scrollView滚动动画结束时, 就会调用这个方法
+ * 前提: 使用setContentOffset:animated:或者scrollRectVisible:animated:方法让scrollView产生滚动动画
+ */
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    [self addChildVcView];
+}
+
+/**
+ * 在scrollView滚动动画结束时, 就会调用这个方法
+ * 前提: 人为拖拽scrollView产生的滚动动画
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // 选中\点击对应的按钮
+    NSUInteger index = scrollView.contentOffset.x / scrollView.xmg_width;
+    XMGTitleButton *titleButton = self.titlesView.subviews[index];
+    [self titleClick:titleButton];
+    
+    // 添加子控制器的view
+    [self addChildVcView];
+    
+    // 当index == 0时, viewWithTag:方法返回的就是self.titlesView
+    //    XMGTitleButton *titleButton = (XMGTitleButton *)[self.titlesView viewWithTag:index];
+}
 @end
