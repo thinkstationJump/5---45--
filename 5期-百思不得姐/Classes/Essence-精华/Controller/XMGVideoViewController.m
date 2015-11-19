@@ -7,6 +7,7 @@
 //
 
 #import "XMGVideoViewController.h"
+#import "XMGRefreshHeader.h"
 
 @interface XMGVideoViewController ()
 
@@ -19,8 +20,19 @@
     
     XMGLogFunc
     
+//    [self.tableView addPullToRefresh1WithActionHandler:^{
+//        
+//    }];
+//    [self.tableView addPullToRefresh2WithActionHandler:^{
+//        
+//    }];
+    
     self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    self.tableView.mj_header = [XMGRefreshHeader headerWithRefreshingBlock:^{
+        XMGLogFunc
+    }];
 }
 
 #pragma mark - Table view data source

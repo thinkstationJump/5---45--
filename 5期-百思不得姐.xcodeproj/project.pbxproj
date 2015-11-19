@@ -22,6 +22,7 @@
 		703C1E381BEC9ACF0043E5A4 /* XMGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C1E371BEC9ACF0043E5A4 /* XMGSettingViewController.m */; };
 		703C1E3B1BEC9B600043E5A4 /* XMGTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C1E3A1BEC9B600043E5A4 /* XMGTestViewController.m */; };
 		703C1E411BEC9F770043E5A4 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703C1E401BEC9F770043E5A4 /* XMGNavigationController.m */; };
+		704793721BFD5CD6005F79D9 /* XMGTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 704793711BFD5CD6005F79D9 /* XMGTopic.m */; settings = {ASSET_TAGS = (); }; };
 		70528B731BF81B14001DCDC3 /* XMGMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70528B721BF81B14001DCDC3 /* XMGMeCell.m */; };
 		70528B761BF81BCE001DCDC3 /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 70528B751BF81BCE001DCDC3 /* XMGConst.m */; };
 		70528B791BF82501001DCDC3 /* XMGMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70528B781BF82501001DCDC3 /* XMGMeFooterView.m */; };
@@ -47,6 +48,8 @@
 		705D9F2E1BEF2BBD003A9857 /* XMGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 705D9F2C1BEF2BBD003A9857 /* XMGLoginRegisterViewController.xib */; };
 		705D9F311BEF3B15003A9857 /* XMGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 705D9F301BEF3B15003A9857 /* XMGTabBar.m */; };
 		705D9F341BEF3B28003A9857 /* XMGQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 705D9F331BEF3B28003A9857 /* XMGQuickLoginButton.m */; };
+		705E12E61BFD70070031EECF /* XMGRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 705E12E51BFD70070031EECF /* XMGRefreshHeader.m */; settings = {ASSET_TAGS = (); }; };
+		705E12E91BFD7F1E0031EECF /* XMGRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 705E12E81BFD7F1E0031EECF /* XMGRefreshFooter.m */; settings = {ASSET_TAGS = (); }; };
 		708B363D1BF02B75006C13B9 /* XMGLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B363C1BF02B75006C13B9 /* XMGLoginRegisterTextField.m */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,8 @@
 		703C1E3A1BEC9B600043E5A4 /* XMGTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTestViewController.m; sourceTree = "<group>"; };
 		703C1E3F1BEC9F770043E5A4 /* XMGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGNavigationController.h; sourceTree = "<group>"; };
 		703C1E401BEC9F770043E5A4 /* XMGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNavigationController.m; sourceTree = "<group>"; };
+		704793701BFD5CD6005F79D9 /* XMGTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopic.h; sourceTree = "<group>"; };
+		704793711BFD5CD6005F79D9 /* XMGTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopic.m; sourceTree = "<group>"; };
 		70528B711BF81B14001DCDC3 /* XMGMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGMeCell.h; sourceTree = "<group>"; };
 		70528B721BF81B14001DCDC3 /* XMGMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGMeCell.m; sourceTree = "<group>"; };
 		70528B741BF81BCE001DCDC3 /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
@@ -145,6 +150,10 @@
 		705D9F301BEF3B15003A9857 /* XMGTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTabBar.m; sourceTree = "<group>"; };
 		705D9F321BEF3B28003A9857 /* XMGQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGQuickLoginButton.h; sourceTree = "<group>"; };
 		705D9F331BEF3B28003A9857 /* XMGQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGQuickLoginButton.m; sourceTree = "<group>"; };
+		705E12E41BFD70070031EECF /* XMGRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRefreshHeader.h; sourceTree = "<group>"; };
+		705E12E51BFD70070031EECF /* XMGRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRefreshHeader.m; sourceTree = "<group>"; };
+		705E12E71BFD7F1E0031EECF /* XMGRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRefreshFooter.h; sourceTree = "<group>"; };
+		705E12E81BFD7F1E0031EECF /* XMGRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRefreshFooter.m; sourceTree = "<group>"; };
 		708B363B1BF02B75006C13B9 /* XMGLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGLoginRegisterTextField.h; sourceTree = "<group>"; };
 		708B363C1BF02B75006C13B9 /* XMGLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGLoginRegisterTextField.m; sourceTree = "<group>"; };
 		B08C0EB4B9FC8EE88CBDFC6B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +239,8 @@
 		7038B4F51BEC5E4F005DBC09 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				704793701BFD5CD6005F79D9 /* XMGTopic.h */,
+				704793711BFD5CD6005F79D9 /* XMGTopic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -419,6 +430,10 @@
 				705D9F331BEF3B28003A9857 /* XMGQuickLoginButton.m */,
 				708B363B1BF02B75006C13B9 /* XMGLoginRegisterTextField.h */,
 				708B363C1BF02B75006C13B9 /* XMGLoginRegisterTextField.m */,
+				705E12E41BFD70070031EECF /* XMGRefreshHeader.h */,
+				705E12E51BFD70070031EECF /* XMGRefreshHeader.m */,
+				705E12E71BFD7F1E0031EECF /* XMGRefreshFooter.h */,
+				705E12E81BFD7F1E0031EECF /* XMGRefreshFooter.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -680,13 +695,16 @@
 				703C1E381BEC9ACF0043E5A4 /* XMGSettingViewController.m in Sources */,
 				703C1E3B1BEC9B600043E5A4 /* XMGTestViewController.m in Sources */,
 				7038B5191BEC5E4F005DBC09 /* XMGMeViewController.m in Sources */,
+				705E12E61BFD70070031EECF /* XMGRefreshHeader.m in Sources */,
 				70528B9E1BF9C5BE001DCDC3 /* XMGVoiceViewController.m in Sources */,
 				70528B8D1BF97265001DCDC3 /* XMGClearCacheCell.m in Sources */,
 				703C1E411BEC9F770043E5A4 /* XMGNavigationController.m in Sources */,
+				705E12E91BFD7F1E0031EECF /* XMGRefreshFooter.m in Sources */,
 				7038B5281BEC95B5005DBC09 /* XMGRecommendFollowViewController.m in Sources */,
 				70528B911BF97FD6001DCDC3 /* XMGOtherCell.m in Sources */,
 				7038B51C1BEC5E4F005DBC09 /* UIView+XMGExtension.m in Sources */,
 				7038B5181BEC5E4F005DBC09 /* XMGFollowViewController.m in Sources */,
+				704793721BFD5CD6005F79D9 /* XMGTopic.m in Sources */,
 				70528B951BF9B9F2001DCDC3 /* XMGTitleButton.m in Sources */,
 				70528B7C1BF83582001DCDC3 /* XMGMeSquare.m in Sources */,
 				705D9F311BEF3B15003A9857 /* XMGTabBar.m in Sources */,

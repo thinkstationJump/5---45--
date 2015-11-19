@@ -21,6 +21,9 @@
 #import "XMGConst.h"
 #import "NSString+XMGExtension.h"
 
+/*** 将服务器返回的数据写入plist ***/
+#define XMGWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/xiaomage/Desktop/%@.plist", filename] atomically:YES];
+
 /*** 日志 ***/
 #ifdef DEBUG
 #define XMGLog(...) NSLog(__VA_ARGS__)
