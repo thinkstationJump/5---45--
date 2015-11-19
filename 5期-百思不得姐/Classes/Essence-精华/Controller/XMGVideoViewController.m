@@ -8,6 +8,7 @@
 
 #import "XMGVideoViewController.h"
 #import "XMGRefreshHeader.h"
+#import "XMGRefreshFooter.h"
 
 @interface XMGVideoViewController ()
 
@@ -31,6 +32,10 @@
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
     self.tableView.mj_header = [XMGRefreshHeader headerWithRefreshingBlock:^{
+        XMGLogFunc
+    }];
+    
+    self.tableView.mj_footer = [XMGRefreshFooter footerWithRefreshingBlock:^{
         XMGLogFunc
     }];
 }
