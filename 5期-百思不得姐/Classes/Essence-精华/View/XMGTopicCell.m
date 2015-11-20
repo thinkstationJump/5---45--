@@ -54,18 +54,40 @@
     
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;
-    // @"2015-11-20 09:10:05" -> @"刚刚" \ @"10分钟前" \ @"5小时前" \ @"昨天 09:10:05" \ @"11-20 09:10:05" \ @"2015-11-20 09:10:05"
     self.createdAtLabel.text = topic.created_at; // 调用get方法[topic created_at];
     self.text_label.text = topic.text;
-    
-    // 发帖时间 : NSString *created_at = @"2015-11-20 09:10:05";
-    // 发帖时间 : NSDate *created_at = ....;
-    // 手机的当前时间 : NSDate *now = [NSDate date];
     
     [self setupButton:self.dingButton number:topic.ding placeholder:@"顶"];
     [self setupButton:self.caiButton number:topic.cai placeholder:@"踩"];
     [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
     [self setupButton:self.commentButton number:topic.comment placeholder:@"评论"];
+    
+    
+//    NSString *str = @"";
+//    if (str.length) {
+//        
+//    }
+    
+    
+    // 没有最热评论
+    // topic.top_cmt = @[];
+    
+    // 有最热评论
+    // topic.top_cmt = @[@{}];
+    
+    // 最热评论 不能用if (topic.top_cmt)
+    // if (topic.top_cmt.count) { // 有最热评论
+    
+    NSDictionary *comment = topic.top_cmt.firstObject;
+    if (comment) { // 有最热评论
+        self.topCmtView.hidden = NO;
+        
+        NSString *username = comment[@"user"][@"username"]; // 用户名
+        NSString *content = comment[@"content"]; // 评论内容
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", username, content];
+    } else { // 没有最热评论
+        self.topCmtView.hidden = YES;
+    }
 }
 
 /**

@@ -86,6 +86,13 @@ static NSString * const XMGTopicCellId = @"topic";
         // 字典数组 -> 模型数组
         self.topics = [XMGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
+//        XMGWriteToPlist(responseObject, @"new_topics")
+//        for (NSUInteger i = 0; i < self.topics.count; i++) {
+//            if (self.topics[i].top_cmt.count) { // 最热评论
+//                XMGLog(@"下拉刷新 - %zd", i);
+//            }
+//        }
+        
         // 刷新表格
         [self.tableView reloadData];
         
@@ -118,6 +125,13 @@ static NSString * const XMGTopicCellId = @"topic";
         // 字典数组 -> 模型数组
         NSArray<XMGTopic *> *moreTopics = [XMGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.topics addObjectsFromArray:moreTopics];
+        
+//        XMGWriteToPlist(responseObject, @"more_topics")
+//        for (NSUInteger i = 0; i < moreTopics.count; i++) {
+//            if (moreTopics[i].top_cmt.count) { // 最热评论
+//                XMGLog(@"上拉刷新 - %zd", i);
+//            }
+//        }
         
         // 刷新表格
         [self.tableView reloadData];
