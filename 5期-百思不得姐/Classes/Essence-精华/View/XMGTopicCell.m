@@ -54,39 +54,18 @@
     
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;
-    self.createdAtLabel.text = topic.created_at;
+    // @"2015-11-20 09:10:05" -> @"刚刚" \ @"10分钟前" \ @"5小时前" \ @"昨天 09:10:05" \ @"11-20 09:10:05" \ @"2015-11-20 09:10:05"
+    self.createdAtLabel.text = topic.created_at; // 调用get方法[topic created_at];
     self.text_label.text = topic.text;
     
-//    if (topic.ding >= 10000) {
-//        [self.dingButton setTitle:[NSString stringWithFormat:@"%.1f万", topic.ding / 10000.0] forState:UIControlStateNormal];
-//    } else if (topic.ding > 0) {
-//        [self.dingButton setTitle:[NSString stringWithFormat:@"%zd", topic.ding] forState:UIControlStateNormal];
-//    } else {
-//        [self.dingButton setTitle:@"顶" forState:UIControlStateNormal];
-//    }
-    
-//    topic.ding = arc4random_uniform(8000) + arc4random_uniform(5000);
-//    topic.cai = arc4random_uniform(8000) + arc4random_uniform(5000);
-//    topic.repost = arc4random_uniform(8000) + arc4random_uniform(5000);
-//    topic.comment = 0;
+    // 发帖时间 : NSString *created_at = @"2015-11-20 09:10:05";
+    // 发帖时间 : NSDate *created_at = ....;
+    // 手机的当前时间 : NSDate *now = [NSDate date];
     
     [self setupButton:self.dingButton number:topic.ding placeholder:@"顶"];
     [self setupButton:self.caiButton number:topic.cai placeholder:@"踩"];
     [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
     [self setupButton:self.commentButton number:topic.comment placeholder:@"评论"];
-    
-    /*
-     数量 >= 10000 
-     比如53454 -> 5.3万
-     
-     数量 < 10000
-     比如5435 -> 5435
-     比如546 -> 546
-     
-     数量 == 0
-     比如0 -> 评论
-     
-     */
 }
 
 /**
@@ -110,8 +89,6 @@
 {
     frame.size.height -= XMGMargin;
     frame.origin.y += XMGMargin;
-//    frame.origin.x += XMGMargin;
-//    frame.size.width -= 2 * XMGMargin;
     
     [super setFrame:frame];
 }
