@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		424AEBFF9F1DB1962E7985CD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB48470ED0B7627B9E723A6 /* libPods.a */; };
+		700112161BFDAEA400F1C012 /* XMGHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 700112151BFDAEA400F1C012 /* XMGHTTPSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		7001121A1BFDB6E000F1C012 /* XMGTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 700112181BFDB6E000F1C012 /* XMGTopicCell.m */; settings = {ASSET_TAGS = (); }; };
+		700112291BFDBC1400F1C012 /* XMGTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 700112281BFDBC1400F1C012 /* XMGTopicCell.xib */; settings = {ASSET_TAGS = (); }; };
+		7001122C1BFDCD6100F1C012 /* XMGTempView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7001122B1BFDCD6100F1C012 /* XMGTempView.m */; settings = {ASSET_TAGS = (); }; };
 		702896211BF09D3200C425C9 /* UITextField+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 702896201BF09D3200C425C9 /* UITextField+XMGExtension.m */; };
 		7038B5171BEC5E4F005DBC09 /* XMGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B4F41BEC5E4F005DBC09 /* XMGEssenceViewController.m */; };
 		7038B5181BEC5E4F005DBC09 /* XMGFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7038B4FA1BEC5E4F005DBC09 /* XMGFollowViewController.m */; };
@@ -71,6 +75,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		700112141BFDAEA400F1C012 /* XMGHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGHTTPSessionManager.h; sourceTree = "<group>"; };
+		700112151BFDAEA400F1C012 /* XMGHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGHTTPSessionManager.m; sourceTree = "<group>"; };
+		700112171BFDB6E000F1C012 /* XMGTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopicCell.h; sourceTree = "<group>"; };
+		700112181BFDB6E000F1C012 /* XMGTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicCell.m; sourceTree = "<group>"; };
+		700112281BFDBC1400F1C012 /* XMGTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicCell.xib; sourceTree = "<group>"; };
+		7001122A1BFDCD6100F1C012 /* XMGTempView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTempView.h; sourceTree = "<group>"; };
+		7001122B1BFDCD6100F1C012 /* XMGTempView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTempView.m; sourceTree = "<group>"; };
 		7028961F1BF09D3200C425C9 /* UITextField+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+XMGExtension.h"; sourceTree = "<group>"; };
 		702896201BF09D3200C425C9 /* UITextField+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+XMGExtension.m"; sourceTree = "<group>"; };
 		7038B4F31BEC5E4F005DBC09 /* XMGEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGEssenceViewController.h; sourceTree = "<group>"; };
@@ -250,6 +261,9 @@
 			children = (
 				70528B931BF9B9F2001DCDC3 /* XMGTitleButton.h */,
 				70528B941BF9B9F2001DCDC3 /* XMGTitleButton.m */,
+				700112171BFDB6E000F1C012 /* XMGTopicCell.h */,
+				700112181BFDB6E000F1C012 /* XMGTopicCell.m */,
+				700112281BFDBC1400F1C012 /* XMGTopicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,6 +402,10 @@
 				7038B5151BEC5E4F005DBC09 /* PrefixHeader.pch */,
 				70528B741BF81BCE001DCDC3 /* XMGConst.h */,
 				70528B751BF81BCE001DCDC3 /* XMGConst.m */,
+				700112141BFDAEA400F1C012 /* XMGHTTPSessionManager.h */,
+				700112151BFDAEA400F1C012 /* XMGHTTPSessionManager.m */,
+				7001122A1BFDCD6100F1C012 /* XMGTempView.h */,
+				7001122B1BFDCD6100F1C012 /* XMGTempView.m */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";
@@ -617,6 +635,7 @@
 			files = (
 				705D9F291BEF25CB003A9857 /* XMGFollowViewController.xib in Resources */,
 				7057B7231BEAEFE8007D60F7 /* Assets.xcassets in Resources */,
+				700112291BFDBC1400F1C012 /* XMGTopicCell.xib in Resources */,
 				70528B871BF87826001DCDC3 /* XMGWebViewController.xib in Resources */,
 				705D9F2E1BEF2BBD003A9857 /* XMGLoginRegisterViewController.xib in Resources */,
 				70528B921BF97FD6001DCDC3 /* XMGOtherCell.xib in Resources */,
@@ -696,6 +715,7 @@
 				703C1E3B1BEC9B600043E5A4 /* XMGTestViewController.m in Sources */,
 				7038B5191BEC5E4F005DBC09 /* XMGMeViewController.m in Sources */,
 				705E12E61BFD70070031EECF /* XMGRefreshHeader.m in Sources */,
+				7001121A1BFDB6E000F1C012 /* XMGTopicCell.m in Sources */,
 				70528B9E1BF9C5BE001DCDC3 /* XMGVoiceViewController.m in Sources */,
 				70528B8D1BF97265001DCDC3 /* XMGClearCacheCell.m in Sources */,
 				703C1E411BEC9F770043E5A4 /* XMGNavigationController.m in Sources */,
@@ -704,8 +724,10 @@
 				70528B911BF97FD6001DCDC3 /* XMGOtherCell.m in Sources */,
 				7038B51C1BEC5E4F005DBC09 /* UIView+XMGExtension.m in Sources */,
 				7038B5181BEC5E4F005DBC09 /* XMGFollowViewController.m in Sources */,
+				7001122C1BFDCD6100F1C012 /* XMGTempView.m in Sources */,
 				704793721BFD5CD6005F79D9 /* XMGTopic.m in Sources */,
 				70528B951BF9B9F2001DCDC3 /* XMGTitleButton.m in Sources */,
+				700112161BFDAEA400F1C012 /* XMGHTTPSessionManager.m in Sources */,
 				70528B7C1BF83582001DCDC3 /* XMGMeSquare.m in Sources */,
 				705D9F311BEF3B15003A9857 /* XMGTabBar.m in Sources */,
 				705D9F2D1BEF2BBD003A9857 /* XMGLoginRegisterViewController.m in Sources */,

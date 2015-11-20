@@ -8,7 +8,7 @@
 
 #import "XMGMeFooterView.h"
 #import "XMGMeSquare.h"
-#import <AFNetworking.h>
+#import "XMGHTTPSessionManager.h"
 #import <MJExtension.h>
 #import "XMGMeSquareButton.h"
 #import "XMGWebViewController.h"
@@ -28,7 +28,7 @@
         params[@"c"] = @"topic";
         
         // 请求
-        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nonnull responseObject) {
+        [[XMGHTTPSessionManager manager] GET:XMGCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nonnull responseObject) {
             // 字典数组 -> 模型数组
             NSArray *squares = [XMGMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
             // 根据模型数据创建对应的控件

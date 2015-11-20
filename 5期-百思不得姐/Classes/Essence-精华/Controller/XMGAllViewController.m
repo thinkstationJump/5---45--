@@ -7,12 +7,13 @@
 //
 
 #import "XMGAllViewController.h"
-#import <AFNetworking.h>
+#import "XMGHTTPSessionManager.h"
 #import "XMGTopic.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
 #import "XMGRefreshHeader.h"
 #import "XMGRefreshFooter.h"
+#import "XMGTopicCell.h"
 
 @interface XMGAllViewController ()
 /** 所有的帖子数据 */
@@ -22,26 +23,40 @@
 /** maxtime : 用来加载下一页数据 */
 @property (nonatomic, copy) NSString *maxtime;
 /** 任务管理者 */
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+@property (nonatomic, strong) XMGHTTPSessionManager *manager;
 @end
 
 @implementation XMGAllViewController
 
-- (AFHTTPSessionManager *)manager
+static NSString * const XMGTopicCellId = @"topic";
+#pragma mark - 懒加载
+- (XMGHTTPSessionManager *)manager
 {
     if (!_manager) {
-        _manager = [AFHTTPSessionManager manager];
+        _manager = [XMGHTTPSessionManager manager];
     }
     return _manager;
 }
 
+
+#pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    [self setupTable];
     
     [self setupRefresh];
+}
+
+- (void)setupTable
+{
+    self.tableView.backgroundColor = XMGCommonBgColor;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    // 注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGTopicCell class]) bundle:nil] forCellReuseIdentifier:XMGTopicCellId];
+    self.tableView.rowHeight = 250;
 }
 
 - (void)setupRefresh
@@ -53,31 +68,10 @@
 }
 
 #pragma mark - 数据加载
-/*
- self.topics = @[20, 19, 18];
- 
- 
- 下拉刷新操作: @[22, 21, 20]
- 上拉刷新操作: @[17, 16, 15]
- 
- 下拉 -> 上拉
- self.topics = @[22, 21, 20, 17, 16, 15];
- 
- 上拉 -> 下拉
- self.topics = @[22, 21, 20];
- */
-
-
 - (void)loadNewTopics
 {
     // 取消所有请求
-//    for (NSURLSessionTask *task in self.manager.tasks) {
-//        [task cancel];
-//    }
     [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
-    
-    // 关闭NSURLSession + 取消所有请求
-    // [self.manager invalidateSessionCancelingTasks:YES];
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -85,7 +79,7 @@
     params[@"c"] = @"data";
     
     // 发送请求
-    [self.manager GET:@"http://api.budejie.c" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [self.manager GET:XMGCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         // 存储maxtime(方便用来加载下一页数据)
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
@@ -98,19 +92,12 @@
         // 让[刷新控件]结束刷新
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (error.code == NSURLErrorCancelled) {
-            // 取消了任务
-        } else {
-            // 是其他错误
-        }
         XMGLog(@"请求失败 - %@", error);
         
         // 让[刷新控件]结束刷新
         [self.tableView.mj_header endRefreshing];
     }];
 }
-
-// 一个请求任务被取消了(cancel), 会自动调用AFN请求的failure这个block
 
 - (void)loadMoreTopics
 {
@@ -124,7 +111,7 @@
     params[@"maxtime"] = self.maxtime;
     
     // 发送请求
-    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [self.manager GET:XMGCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         // 存储这页对应的maxtime
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
@@ -151,23 +138,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // 1.确定重用标示:
-    static NSString *ID = @"cell";
+    XMGTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGTopicCellId];
     
-    // 2.从缓存池中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    // 3.如果空就手动创建
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        cell.backgroundColor = XMGRandomColor;
-    }
-    
-    // 4.显示数据
-    XMGTopic *topic = self.topics[indexPath.row];
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    cell.topic = self.topics[indexPath.row];
     
     return cell;
 }

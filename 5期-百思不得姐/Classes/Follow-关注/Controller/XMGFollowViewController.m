@@ -9,6 +9,7 @@
 #import "XMGFollowViewController.h"
 #import "XMGRecommendFollowViewController.h"
 #import "XMGLoginRegisterViewController.h"
+#import "XMGTempView.h"
 
 @interface XMGFollowViewController ()
 /** 文本框 */
@@ -26,6 +27,10 @@
     self.navigationItem.title = @"我的关注";
     // 左边
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(followClick)];
+    
+    XMGTempView *tmp = [[XMGTempView alloc] init];
+    tmp.backgroundColor = XMGRandomColor;
+    [self.view addSubview:tmp];
 }
 
 - (IBAction)loginRegister {
