@@ -150,7 +150,6 @@ static NSString * const XMGTopicCellId = @"topic";
 #pragma mark - 代理方法
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-#pragma mark - 根据XMGTopic模型数据计算出cell具体的高度, 并且返回
-    return indexPath.row * 10 + 200;
+    return self.topics[indexPath.row].cellHeight;
 }
 @end
