@@ -40,8 +40,6 @@
     
     // 默认添加子控制器的view
     [self addChildVcView];
-    
-    UITextField *btn;
 }
 
 - (void)setupChildViewControllers
