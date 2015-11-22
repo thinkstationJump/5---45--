@@ -40,6 +40,8 @@
     
     // 默认添加子控制器的view
     [self addChildVcView];
+    
+    UITextField *btn;
 }
 
 - (void)setupChildViewControllers
@@ -66,7 +68,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.backgroundColor = XMGRandomColor;
+    scrollView.backgroundColor = XMGCommonBgColor;
     scrollView.frame = self.view.bounds;
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;

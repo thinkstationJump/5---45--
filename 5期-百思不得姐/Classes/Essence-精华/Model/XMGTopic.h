@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, XMGTopicType) {
+    /** 全部 */
+    XMGTopicTypeAll = 1,
     /** 图片 */
     XMGTopicTypePicture = 10,
     /** 段子 */

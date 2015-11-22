@@ -7,8 +7,6 @@
 //
 
 #import "XMGVideoViewController.h"
-#import "XMGRefreshHeader.h"
-#import "XMGRefreshFooter.h"
 
 @interface XMGVideoViewController ()
 
@@ -16,50 +14,17 @@
 
 @implementation XMGVideoViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    XMGLogFunc
-    
-//    [self.tableView addPullToRefresh1WithActionHandler:^{
-//        
-//    }];
-//    [self.tableView addPullToRefresh2WithActionHandler:^{
-//        
-//    }];
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    
-    self.tableView.mj_header = [XMGRefreshHeader headerWithRefreshingBlock:^{
-        XMGLogFunc
-    }];
-    
-    self.tableView.mj_footer = [XMGRefreshFooter footerWithRefreshingBlock:^{
-        XMGLogFunc
-    }];
-}
 
-#pragma mark - Table view data source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 50;
-}
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//    
+//    self.type = XMGTopicTypeVideo;
+//}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // 1.确定重用标示:
-    static NSString *ID = @"cell";
-    
-    // 2.从缓存池中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    // 3.如果空就手动创建
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.backgroundColor = XMGRandomColor;
-    }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %zd", [self class], indexPath.row];
-    
-    return cell;
+- (XMGTopicType)type
+{
+    return XMGTopicTypeVideo;
 }
 
 @end

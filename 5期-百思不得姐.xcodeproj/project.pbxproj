@@ -66,6 +66,7 @@
 		70B34A4E1C015DD00045A5C7 /* XMGTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B34A471C015DD00045A5C7 /* XMGTopicVideoView.xib */; settings = {ASSET_TAGS = (); }; };
 		70B34A4F1C015DD00045A5C7 /* XMGTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B34A491C015DD00045A5C7 /* XMGTopicVoiceView.m */; settings = {ASSET_TAGS = (); }; };
 		70B34A501C015DD00045A5C7 /* XMGTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B34A4A1C015DD00045A5C7 /* XMGTopicVoiceView.xib */; settings = {ASSET_TAGS = (); }; };
+		70B34A781C01A91C0045A5C7 /* XMGTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B34A771C01A91C0045A5C7 /* XMGTopicViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,8 @@
 		70B34A481C015DD00045A5C7 /* XMGTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopicVoiceView.h; sourceTree = "<group>"; };
 		70B34A491C015DD00045A5C7 /* XMGTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicVoiceView.m; sourceTree = "<group>"; };
 		70B34A4A1C015DD00045A5C7 /* XMGTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicVoiceView.xib; sourceTree = "<group>"; };
+		70B34A761C01A91C0045A5C7 /* XMGTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopicViewController.h; sourceTree = "<group>"; };
+		70B34A771C01A91C0045A5C7 /* XMGTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicViewController.m; sourceTree = "<group>"; };
 		B08C0EB4B9FC8EE88CBDFC6B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FCB48470ED0B7627B9E723A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCBF07BCB582089D6810B6C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +276,8 @@
 				70528BA01BF9C5CE001DCDC3 /* XMGPictureViewController.m */,
 				70528BA21BF9C5DB001DCDC3 /* XMGWordViewController.h */,
 				70528BA31BF9C5DB001DCDC3 /* XMGWordViewController.m */,
+				70B34A761C01A91C0045A5C7 /* XMGTopicViewController.h */,
+				70B34A771C01A91C0045A5C7 /* XMGTopicViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -808,6 +813,7 @@
 				705D9F341BEF3B28003A9857 /* XMGQuickLoginButton.m in Sources */,
 				70528B981BF9C587001DCDC3 /* XMGAllViewController.m in Sources */,
 				7038B51B1BEC5E4F005DBC09 /* AppDelegate.m in Sources */,
+				70B34A781C01A91C0045A5C7 /* XMGTopicViewController.m in Sources */,
 				70B34A4D1C015DD00045A5C7 /* XMGTopicVideoView.m in Sources */,
 				70B34A4F1C015DD00045A5C7 /* XMGTopicVoiceView.m in Sources */,
 			);
