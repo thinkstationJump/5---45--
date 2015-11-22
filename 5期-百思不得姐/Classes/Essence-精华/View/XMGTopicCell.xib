@@ -222,7 +222,7 @@
                 <outlet property="topCmtContentLabel" destination="o5a-k3-9Ci" id="v6r-LS-dfp"/>
                 <outlet property="topCmtView" destination="Ja7-ao-lNz" id="M6H-Gu-PY2"/>
             </connections>
-            <point key="canvasLocation" x="11" y="278"/>
+            <point key="canvasLocation" x="192" y="280"/>
         </tableViewCell>
     </objects>
     <resources>

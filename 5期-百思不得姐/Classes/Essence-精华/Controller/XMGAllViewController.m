@@ -56,7 +56,7 @@ static NSString * const XMGTopicCellId = @"topic";
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGTopicCell class]) bundle:nil] forCellReuseIdentifier:XMGTopicCellId];
-    self.tableView.rowHeight = 250;
+    // self.tableView.rowHeight = 250;
 }
 
 - (void)setupRefresh
@@ -77,6 +77,7 @@ static NSString * const XMGTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
+    params[@"type"] = @"1";
     
     // 发送请求
     [self.manager GET:XMGCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -85,13 +86,6 @@ static NSString * const XMGTopicCellId = @"topic";
         
         // 字典数组 -> 模型数组
         self.topics = [XMGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-//        XMGWriteToPlist(responseObject, @"new_topics")
-//        for (NSUInteger i = 0; i < self.topics.count; i++) {
-//            if (self.topics[i].top_cmt.count) { // 最热评论
-//                XMGLog(@"下拉刷新 - %zd", i);
-//            }
-//        }
         
         // 刷新表格
         [self.tableView reloadData];
@@ -116,6 +110,7 @@ static NSString * const XMGTopicCellId = @"topic";
     params[@"a"] = @"list";
     params[@"c"] = @"data";
     params[@"maxtime"] = self.maxtime;
+    params[@"type"] = @"1";
     
     // 发送请求
     [self.manager GET:XMGCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -125,13 +120,6 @@ static NSString * const XMGTopicCellId = @"topic";
         // 字典数组 -> 模型数组
         NSArray<XMGTopic *> *moreTopics = [XMGTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.topics addObjectsFromArray:moreTopics];
-        
-//        XMGWriteToPlist(responseObject, @"more_topics")
-//        for (NSUInteger i = 0; i < moreTopics.count; i++) {
-//            if (moreTopics[i].top_cmt.count) { // 最热评论
-//                XMGLog(@"上拉刷新 - %zd", i);
-//            }
-//        }
         
         // 刷新表格
         [self.tableView reloadData];
@@ -160,5 +148,9 @@ static NSString * const XMGTopicCellId = @"topic";
 }
 
 #pragma mark - 代理方法
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+#pragma mark - 根据XMGTopic模型数据计算出cell具体的高度, 并且返回
+    return indexPath.row * 10 + 200;
+}
 @end

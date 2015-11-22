@@ -9,6 +9,8 @@
 #import "XMGTopicCell.h"
 #import "XMGTopic.h"
 #import <UIImageView+WebCache.h>
+#import "XMGComment.h"
+#import "XMGUser.h"
 
 @interface XMGTopicCell()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -62,31 +64,27 @@
     [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
     [self setupButton:self.commentButton number:topic.comment placeholder:@"评论"];
     
-    
-//    NSString *str = @"";
-//    if (str.length) {
-//        
-//    }
-    
-    
-    // 没有最热评论
-    // topic.top_cmt = @[];
-    
-    // 有最热评论
-    // topic.top_cmt = @[@{}];
-    
-    // 最热评论 不能用if (topic.top_cmt)
-    // if (topic.top_cmt.count) { // 有最热评论
-    
-    NSDictionary *comment = topic.top_cmt.firstObject;
-    if (comment) { // 有最热评论
+    // 最热评论
+    if (topic.top_cmt) { // 有最热评论
         self.topCmtView.hidden = NO;
         
-        NSString *username = comment[@"user"][@"username"]; // 用户名
-        NSString *content = comment[@"content"]; // 评论内容
+        NSString *username = topic.top_cmt.user.username; // 用户名
+        NSString *content = topic.top_cmt.content; // 评论内容
         self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", username, content];
     } else { // 没有最热评论
         self.topCmtView.hidden = YES;
+    }
+    
+    // 中间内容
+#pragma mark - 根据XMGTopic模型数据的情况来决定中间添加什么控件(内容)
+    if (topic.type == XMGTopicTypeVideo) { // 视频
+        
+    } else if (topic.type == XMGTopicTypeVoice) { // 音频
+    
+    } else if (topic.type == XMGTopicTypeWord) { // 段子
+
+    } else if (topic.type == XMGTopicTypePicture) { // 图片
+    
     }
 }
 

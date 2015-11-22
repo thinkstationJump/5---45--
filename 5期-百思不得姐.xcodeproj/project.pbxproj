@@ -56,6 +56,9 @@
 		705E12E91BFD7F1E0031EECF /* XMGRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 705E12E81BFD7F1E0031EECF /* XMGRefreshFooter.m */; settings = {ASSET_TAGS = (); }; };
 		708005DB1BFECC4300192AC9 /* NSDate+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 708005DA1BFECC4300192AC9 /* NSDate+XMGExtension.m */; settings = {ASSET_TAGS = (); }; };
 		708005DE1BFECDC000192AC9 /* NSCalendar+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 708005DD1BFECDC000192AC9 /* NSCalendar+XMGExtension.m */; settings = {ASSET_TAGS = (); }; };
+		708005E11BFF081A00192AC9 /* XMGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 708005E01BFF081A00192AC9 /* XMGUser.m */; settings = {ASSET_TAGS = (); }; };
+		708005E41BFF084300192AC9 /* XMGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 708005E31BFF084300192AC9 /* XMGComment.m */; settings = {ASSET_TAGS = (); }; };
+		708006201BFF20D900192AC9 /* XMGExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7080061F1BFF20D900192AC9 /* XMGExtensionConfig.m */; settings = {ASSET_TAGS = (); }; };
 		708B363D1BF02B75006C13B9 /* XMGLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B363C1BF02B75006C13B9 /* XMGLoginRegisterTextField.m */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +174,12 @@
 		708005DA1BFECC4300192AC9 /* NSDate+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XMGExtension.m"; sourceTree = "<group>"; };
 		708005DC1BFECDC000192AC9 /* NSCalendar+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+XMGExtension.h"; sourceTree = "<group>"; };
 		708005DD1BFECDC000192AC9 /* NSCalendar+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+XMGExtension.m"; sourceTree = "<group>"; };
+		708005DF1BFF081A00192AC9 /* XMGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGUser.h; sourceTree = "<group>"; };
+		708005E01BFF081A00192AC9 /* XMGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGUser.m; sourceTree = "<group>"; };
+		708005E21BFF084300192AC9 /* XMGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGComment.h; sourceTree = "<group>"; };
+		708005E31BFF084300192AC9 /* XMGComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGComment.m; sourceTree = "<group>"; };
+		7080061E1BFF20D900192AC9 /* XMGExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGExtensionConfig.h; sourceTree = "<group>"; };
+		7080061F1BFF20D900192AC9 /* XMGExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGExtensionConfig.m; sourceTree = "<group>"; };
 		708B363B1BF02B75006C13B9 /* XMGLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGLoginRegisterTextField.h; sourceTree = "<group>"; };
 		708B363C1BF02B75006C13B9 /* XMGLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGLoginRegisterTextField.m; sourceTree = "<group>"; };
 		B08C0EB4B9FC8EE88CBDFC6B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -258,6 +267,10 @@
 			children = (
 				704793701BFD5CD6005F79D9 /* XMGTopic.h */,
 				704793711BFD5CD6005F79D9 /* XMGTopic.m */,
+				708005DF1BFF081A00192AC9 /* XMGUser.h */,
+				708005E01BFF081A00192AC9 /* XMGUser.m */,
+				708005E21BFF084300192AC9 /* XMGComment.h */,
+				708005E31BFF084300192AC9 /* XMGComment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,6 +425,8 @@
 				700112151BFDAEA400F1C012 /* XMGHTTPSessionManager.m */,
 				7001122A1BFDCD6100F1C012 /* XMGTempView.h */,
 				7001122B1BFDCD6100F1C012 /* XMGTempView.m */,
+				7080061E1BFF20D900192AC9 /* XMGExtensionConfig.h */,
+				7080061F1BFF20D900192AC9 /* XMGExtensionConfig.m */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";
@@ -724,6 +739,7 @@
 				703C1E381BEC9ACF0043E5A4 /* XMGSettingViewController.m in Sources */,
 				703C1E3B1BEC9B600043E5A4 /* XMGTestViewController.m in Sources */,
 				7038B5191BEC5E4F005DBC09 /* XMGMeViewController.m in Sources */,
+				708005E41BFF084300192AC9 /* XMGComment.m in Sources */,
 				708005DB1BFECC4300192AC9 /* NSDate+XMGExtension.m in Sources */,
 				705E12E61BFD70070031EECF /* XMGRefreshHeader.m in Sources */,
 				7001121A1BFDB6E000F1C012 /* XMGTopicCell.m in Sources */,
@@ -734,6 +750,7 @@
 				7038B5281BEC95B5005DBC09 /* XMGRecommendFollowViewController.m in Sources */,
 				70528B911BF97FD6001DCDC3 /* XMGOtherCell.m in Sources */,
 				708005DE1BFECDC000192AC9 /* NSCalendar+XMGExtension.m in Sources */,
+				708006201BFF20D900192AC9 /* XMGExtensionConfig.m in Sources */,
 				7038B51C1BEC5E4F005DBC09 /* UIView+XMGExtension.m in Sources */,
 				7038B5181BEC5E4F005DBC09 /* XMGFollowViewController.m in Sources */,
 				7001122C1BFDCD6100F1C012 /* XMGTempView.m in Sources */,
@@ -752,6 +769,7 @@
 				7038B5171BEC5E4F005DBC09 /* XMGEssenceViewController.m in Sources */,
 				70528B7F1BF86509001DCDC3 /* XMGMeSquareButton.m in Sources */,
 				7038B51F1BEC5E4F005DBC09 /* main.m in Sources */,
+				708005E11BFF081A00192AC9 /* XMGUser.m in Sources */,
 				70528B861BF87826001DCDC3 /* XMGWebViewController.m in Sources */,
 				7038B5251BEC8EEB005DBC09 /* UIBarButtonItem+XMGExtension.m in Sources */,
 				70528B761BF81BCE001DCDC3 /* XMGConst.m in Sources */,

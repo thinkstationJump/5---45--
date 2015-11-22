@@ -9,7 +9,7 @@
 #import "XMGTopic.h"
 
 @implementation XMGTopic
-
+#pragma mark - 其他
 static NSDateFormatter *fmt_;
 static NSCalendar *calendar_;
 /**
