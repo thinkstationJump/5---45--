@@ -9,6 +9,7 @@
 #import "XMGTopicVideoView.h"
 #import "XMGTopic.h"
 #import <UIImageView+WebCache.h>
+#import "XMGSeeBigViewController.h"
 
 @interface XMGTopicVideoView()
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
@@ -20,6 +21,16 @@
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBig)]];
+}
+
+- (void)seeBig
+{
+    XMGSeeBigViewController *seeBig = [[XMGSeeBigViewController alloc] init];
+    seeBig.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:seeBig animated:YES completion:nil];
 }
 
 - (void)setTopic:(XMGTopic *)topic
