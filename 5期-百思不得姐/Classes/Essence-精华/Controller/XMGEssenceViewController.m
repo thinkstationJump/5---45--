@@ -45,14 +45,14 @@
 
 - (void)setupChildViewControllers
 {
+    XMGVoiceViewController *voice = [[XMGVoiceViewController alloc] init];
+    [self addChildViewController:voice];
+    
     XMGAllViewController *all = [[XMGAllViewController alloc] init];
     [self addChildViewController:all];
     
     XMGVideoViewController *video = [[XMGVideoViewController alloc] init];
     [self addChildViewController:video];
-    
-    XMGVoiceViewController *voice = [[XMGVoiceViewController alloc] init];
-    [self addChildViewController:voice];
     
     XMGPictureViewController *picture = [[XMGPictureViewController alloc] init];
     [self addChildViewController:picture];
@@ -89,7 +89,7 @@
     self.titlesView = titlesView;
     
     // 添加标题
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSArray *titles = @[@"声音", @"全部", @"视频", @"图片", @"段子"];
     NSUInteger count = titles.count;
     CGFloat titleButtonW = titlesView.xmg_width / count;
     CGFloat titleButtonH = titlesView.xmg_height;

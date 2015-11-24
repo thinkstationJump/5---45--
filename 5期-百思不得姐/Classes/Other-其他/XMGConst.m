@@ -7,3 +7,9 @@ CGFloat const XMGSmallMargin = XMGMargin * 0.5;
 
 /** 公共的URL */
 NSString * const XMGCommonURL = @"http://api.budejie.com/api/api_open.php";
+
+/** XMGUser - sex - male */
+NSString * const XMGUserSexMale = @"m";
+
+/** XMGUser - sex - female */
+NSString * const XMGUserSexFemale = @"f";

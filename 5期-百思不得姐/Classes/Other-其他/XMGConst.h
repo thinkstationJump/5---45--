@@ -7,3 +7,9 @@ UIKIT_EXTERN CGFloat const XMGSmallMargin;
 
 /** 公共的URL */
 UIKIT_EXTERN NSString * const XMGCommonURL;
+
+/** XMGUser - sex - male */
+UIKIT_EXTERN NSString * const XMGUserSexMale;
+
+/** XMGUser - sex - female */
+UIKIT_EXTERN NSString * const XMGUserSexFemale;
