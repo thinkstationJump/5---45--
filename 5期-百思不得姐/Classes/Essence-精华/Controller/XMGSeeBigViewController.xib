@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XMGSeeBigViewController">
             <connections>
+                <outlet property="saveButton" destination="UWU-1m-yZL" id="0GV-2U-uey"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +26,7 @@
                         <action selector="back" destination="-1" eventType="touchUpInside" id="nNl-jM-gvb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWU-1m-yZL" userLabel="保存">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWU-1m-yZL" userLabel="保存">
                     <rect key="frame" x="520" y="530" width="70" height="30"/>
                     <color key="backgroundColor" red="0.63725842927631504" green="0.55604954769736847" blue="0.47494346217105265" alpha="0.46000000000000002" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -34,6 +35,9 @@
                     </constraints>
                     <state key="normal" title="保存">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="save" destination="-1" eventType="touchUpInside" id="ejA-Fy-OOB"/>

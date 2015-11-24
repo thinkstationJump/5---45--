@@ -22,6 +22,8 @@
 #import "NSString+XMGExtension.h"
 #import "NSDate+XMGExtension.h"
 #import "NSCalendar+XMGExtension.h"
+#import "UIImage+XMGExtension.h"
+#import "UIImageView+XMGExtension.h"
 
 /*** 当前系统版本判断 ***/
 #define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
