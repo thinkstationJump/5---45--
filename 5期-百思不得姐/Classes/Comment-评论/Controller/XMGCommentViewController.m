@@ -15,6 +15,7 @@
 #import <MJExtension.h>
 #import "XMGCommentSectionHeader.h"
 #import "XMGCommentCell.h"
+#import "XMGTopicCell.h"
 
 @interface XMGCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -26,10 +27,13 @@
 @property (nonatomic, strong) NSArray<XMGComment *> *hotestComments;
 
 /** 最新评论数据 */
-@property (nonatomic, strong) NSMutableArray<XMGComment *> *lastestComments;
+@property (nonatomic, strong) NSMutableArray<XMGComment *> *latestComments;
 
 // 对象属性名不能以new开头
 // @property (nonatomic, strong) NSMutableArray<XMGComment *> *newComments;
+
+/** 最热评论 */
+@property (nonatomic, strong) XMGComment *savedTopCmt;
 @end
 
 @implementation XMGCommentViewController
@@ -55,17 +59,37 @@ static NSString * const XMGSectionHeaderlId = @"header";
     [self setupTable];
     
     [self setupRefresh];
+    
+    [self setupHeader];
+}
+
+- (void)setupHeader
+{
+    // 处理模型数据
+    self.savedTopCmt = self.topic.top_cmt;
+    self.topic.top_cmt = nil;
+    self.topic.cellHeight = 0;
+    
+    // 创建header
+    UIView *header = [[UIView alloc] init];
+    
+    // 添加cell到header
+    XMGTopicCell *cell = [XMGTopicCell viewFromXib];
+    cell.topic = self.topic;
+    cell.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.topic.cellHeight);
+    [header addSubview:cell];
+    
+    // 设置header的高度
+    header.xmg_height = cell.xmg_height + XMGMargin * 2;
+    
+    // 设置header
+    self.tableView.tableHeaderView = header;
 }
 
 - (void)setupTable
 {
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGCommentCell class]) bundle:nil] forCellReuseIdentifier:XMGCommentCellId];
     [self.tableView registerClass:[XMGCommentSectionHeader class] forHeaderFooterViewReuseIdentifier:XMGSectionHeaderlId];
-    
-    UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = [UIColor redColor];
-    headerView.xmg_height = 200;
-    self.tableView.tableHeaderView = headerView;
     
     self.tableView.backgroundColor = XMGCommonBgColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -84,6 +108,7 @@ static NSString * const XMGSectionHeaderlId = @"header";
     [self.tableView.mj_header beginRefreshing];
     
     self.tableView.mj_footer = [XMGRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
+    // self.tableView.mj_footer.automaticallyHidden = NO;
 }
 
 - (void)setupBase
@@ -96,6 +121,9 @@ static NSString * const XMGSectionHeaderlId = @"header";
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    self.topic.top_cmt = self.savedTopCmt;
+    self.topic.cellHeight = 0;
 }
 
 // -[__NSArray0 objectForKeyedSubscript:]: unrecognized selector sent to instance 0x7fb738c01870
@@ -126,7 +154,7 @@ static NSString * const XMGSectionHeaderlId = @"header";
         }
         
         // 字典数组 -> 模型数组
-        weakSelf.lastestComments = [XMGComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        weakSelf.latestComments = [XMGComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         weakSelf.hotestComments = [XMGComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         
         // 刷新表格
@@ -134,6 +162,12 @@ static NSString * const XMGSectionHeaderlId = @"header";
         
         // 让[刷新控件]结束刷新
         [weakSelf.tableView.mj_header endRefreshing];
+        
+        int total = [responseObject[@"total"] intValue];
+        if (weakSelf.latestComments.count == total) { // 全部加载完毕
+            // 隐藏
+            weakSelf.tableView.mj_footer.hidden = YES;
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         // 让[刷新控件]结束刷新
         [weakSelf.tableView.mj_header endRefreshing];
@@ -142,7 +176,45 @@ static NSString * const XMGSectionHeaderlId = @"header";
 
 - (void)loadMoreComments
 {
+    // 取消所有请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"lastcid"] = self.latestComments.lastObject.ID;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    // 发送请求
+    [self.manager GET:XMGCommonURL parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            [weakSelf.tableView.mj_footer endRefreshing];
+            return;
+        }
+        
+        // 字典数组 -> 模型数组
+        NSArray *moreComments = [XMGComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [weakSelf.latestComments addObjectsFromArray:moreComments];
+        
+        // 刷新表格
+        [weakSelf.tableView reloadData];
+        
+        int total = [responseObject[@"total"] intValue];
+        if (weakSelf.latestComments.count == total) { // 全部加载完毕
+            // 提示用户:没有更多数据
+            // [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+            weakSelf.tableView.mj_footer.hidden = YES;
+        } else { // 还没有加载完全
+            // 结束刷新
+            [weakSelf.tableView.mj_footer endRefreshing];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 结束刷新
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
 }
 
 #pragma mark - 监听
@@ -163,16 +235,11 @@ static NSString * const XMGSectionHeaderlId = @"header";
 #pragma mark - 数据源方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    if (self.lastestComments.count && self.hotestComments.count) return 2;
-//    if (self.lastestComments.count && self.hotestComments.count == 0) return 1;
-//    
-//    return 0;
-    
     // 有最热评论 + 最新评论数据
     if (self.hotestComments.count) return 2;
     
     // 没有最热评论数据, 有最新评论数据
-    if (self.lastestComments.count) return 1;
+    if (self.latestComments.count) return 1;
     
     // 没有最热评论数据, 没有最新评论数据
     return 0;
@@ -180,25 +247,13 @@ static NSString * const XMGSectionHeaderlId = @"header";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    // 第0组
-//    if (section == 0) {
-//        if (self.hotestComments.count) {
-//            return self.hotestComments.count;
-//        } else {
-//            return self.lastestComments.count;
-//        }
-//    }
-//    
-//    // 其他组 - section == 1
-//    return self.lastestComments.count;
-    
     // 第0组 && 有最热评论数据
     if (section == 0 && self.hotestComments.count) {
         return self.hotestComments.count;
     }
     
     // 其他情况
-    return self.lastestComments.count;
+    return self.latestComments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -208,88 +263,13 @@ static NSString * const XMGSectionHeaderlId = @"header";
     if (indexPath.section == 0 && self.hotestComments.count) {
         cell.comment = self.hotestComments[indexPath.row];
     } else {
-        cell.comment = self.lastestComments[indexPath.row];
+        cell.comment = self.latestComments[indexPath.row];
     }
     
     return cell;
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    // 第0组 && 有最热评论数据
-//    if (section == 0 && self.hotestComments.count) {
-//        return @"最热评论";
-//    }
-//    
-//    // 其他情况
-//    return @"最新评论";
-//}
-
 #pragma mark - <UITableViewDelegate>
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    UILabel *label = [[UILabel alloc] init];
-//    label.backgroundColor = tableView.backgroundColor;
-//    label.font = XMGCommentSectionHeaderFont;
-//    label.textColor = [UIColor darkGrayColor];
-//    
-//    // 第0组 && 有最热评论数据
-//    if (section == 0 && self.hotestComments.count) {
-//        label.text = @"最热评论";
-//    } else { // 其他情况
-//        label.text = @"最新评论";
-//    }
-//    
-//    return label;
-//}
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    UIButton *button = [[UIButton alloc] init];
-//    button.backgroundColor = tableView.backgroundColor;
-//    
-//    // 内边距
-//    button.contentEdgeInsets = UIEdgeInsetsMake(0, XMGMargin, 0, 0);
-//    // button.titleEdgeInsets = UIEdgeInsetsMake(0, XMGMargin, 0, 0);
-//    // 让按钮内部的内容, 在按钮中左对齐
-//    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    
-//    button.titleLabel.font = XMGCommentSectionHeaderFont;
-//    
-//    // 让label的文字在label内部左对齐
-//    // button.titleLabel.textAlignment = NSTextAlignmentLeft;
-//    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-//    // 第0组 && 有最热评论数据
-//    if (section == 0 && self.hotestComments.count) {
-//        [button setTitle:@"最热评论" forState:UIControlStateNormal];
-//    } else { // 其他情况
-//        [button setTitle:@"最新评论" forState:UIControlStateNormal];
-//    }
-//    
-//    return button;
-//}
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    //    if (header == nil) {
-//    //        header = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:XMGSectionHeaderlId];
-//    //        header.textLabel.textColor = [UIColor darkGrayColor];
-//    //    }
-//    
-//    
-//    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:XMGSectionHeaderlId];
-//    
-//    header.textLabel.textColor = [UIColor darkGrayColor];
-//    // 第0组 && 有最热评论数据
-//    if (section == 0 && self.hotestComments.count) {
-//        header.textLabel.text = @"最热评论";
-//    } else { // 其他情况
-//        header.textLabel.text = @"最新评论";
-//    }
-//    
-//    return header;
-//}
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     XMGCommentSectionHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:XMGSectionHeaderlId];

@@ -17,11 +17,14 @@
 {
     [XMGTopic mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
-                 @"ID" : @"id",
                  @"top_cmt" : @"top_cmt[0]",
                  @"small_image" : @"image0",
                  @"middle_image" : @"image2",
                  @"large_image" : @"image1"};
+    }];
+    
+    [NSObject mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID" : @"id"};
     }];
 }
 
