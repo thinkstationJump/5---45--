@@ -13,3 +13,9 @@ NSString * const XMGUserSexMale = @"m";
 
 /** XMGUser - sex - female */
 NSString * const XMGUserSexFemale = @"f";
+
+/*** 通知 ***/
+/** TabBar按钮被重复点击的通知 */
+NSString * const XMGTabBarButtonDidRepeatClickNotification = @"XMGTabBarButtonDidRepeatClickNotification";
+/** 标题按钮被重复点击的通知 */
+NSString * const XMGTitleButtonDidRepeatClickNotification = @"XMGTitleButtonDidRepeatClickNotification";

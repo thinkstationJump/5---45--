@@ -26,7 +26,7 @@
                         <constraint firstAttribute="width" constant="31" id="gFG-2b-STI"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUn-ZS-NaN">
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUn-ZS-NaN">
                     <rect key="frame" x="0.0" y="130" width="288" height="43"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="gZW-ep-dnn"/>
